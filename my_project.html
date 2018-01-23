@@ -20,20 +20,37 @@
       </ul>    
     </div>  
     <h1>My Project</h1>
+    
     <style>
       .dropbtn {background-color: yellow;
       color: red;
       padding: 16px;
       font-size: 16px;
       border: none;}
+      
       .dropdown {position: relative;
       display: inline-block;}
-      .dropdown-content {}
+      
+      .dropdown-content {display: none;
+      position: absolute;
+      background color: yellow;
+      min-width: 140px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;}
+      
       .dropdown-content a {color: red;
       padding: 16px;
+      text-decoration: none; 
       display: block;}
+      
+      .dropdown-content a:hover {background-color: yellow;}
+      
       .dropdown:hover .dropdown-content {display: block;}
+      
+      .dropdown:hover .dropbtn {background-color: yellow;}
+      
     </style>
+    
     <div class="dropdown">
       <button class="dropbtn">Project Pages</button>
       <div class="dropdown-content">

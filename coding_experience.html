@@ -21,11 +21,54 @@
     </div>  
     <h1>Coding Experince</h1>
     <div class="about">
-      <ul>
+      
+      <style>
+      .dropbtn {background-color: black;
+      color: White;
+      padding: 16px;
+      font-size: 16px;
+      border: none;}
+      
+      .dropdown {position: relative;
+      display: inline-block;}
+      
+      .dropdown-content {display: none;
+      position: absolute;
+      background color: black;
+      min-width: 140px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;}
+      
+      .dropdown-content a {color: black;
+      padding: 16px;
+      text-decoration: none; 
+      display: block;}
+      
+      .dropdown-content a:hover {background-color: grey;}
+      
+      .dropdown:hover .dropdown-content {display: block;}
+      
+      .dropdown:hover .dropbtn {background-color: black;}
+      
+    </style>
+    
+    <div class="dropdown">
+      <button class="dropbtn">Languages</button>
+      <div class="dropdown-content">
+      <!--<ul>-->
+        <style>
+          li {list-style-type:none;}
+        </style>
+        <li><a href="html.html">HTML</a></li>
+        <li><a href="python.html">Python</a></li>
+      </div>
+    </div>
+      
+     <!-- <ul>
         <li> <a href="html.html">HTML</a></li>
         <li> <a href="python.html">Python</a></li>
       </ul>
-      <img src="HIP%20Banquet%202017-037[1].jpg" />
+      <img src="HIP%20Banquet%202017-037[1].jpg" />-->
       <h2> With the coding experience I have so far, I am excited to start working on my project
         in order to test my programming skills on something real. I would be able to utilize Python in order to 
         program a robot and its sensors through a Raspberry Pi.

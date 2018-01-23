@@ -20,15 +20,52 @@
       </ul>    
     </div>  
     <h1>My Project</h1>
-    <div class="about">
-      <ul>
+    
+    <style>
+      .dropbtn {background-color: black;
+      color: White;
+      padding: 16px;
+      font-size: 16px;
+      border: none;}
+      
+      .dropdown {position: relative;
+      display: inline-block;}
+      
+      .dropdown-content {display: none;
+      position: absolute;
+      background color: black;
+      min-width: 140px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;}
+      
+      .dropdown-content a {color: black;
+      padding: 16px;
+      text-decoration: none; 
+      display: block;}
+      
+      .dropdown-content a:hover {background-color: grey;}
+      
+      .dropdown:hover .dropdown-content {display: block;}
+      
+      .dropdown:hover .dropbtn {background-color: black;}
+      
+    </style>
+    
+    <div class="dropdown">
+      <button class="dropbtn">Project Pages</button>
+      <div class="dropdown-content">
+      <!--<ul>-->
+        <style>
+          li {list-style-type:none;}
+        </style>
         <li><a href="proposal.html">Proposal</a></li>
         <li><a href="schedule.html">Schedule</a></li>
         <li><a href="budget.html">Budget</a></li>
         <li><a href="requirements.html">Requirements</a></li>
         <li><a href="architecture.html">Architecture</a></li>
         <li><a href="test_plan.html">Test Plan</a></li>
-      </ul>
+      </div>
+    </div>
       <h2>Proposal</h2>
       <h4>
         1.	Project Title </br>

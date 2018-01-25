@@ -20,13 +20,23 @@
         li {float: left;
         border-right: 1px solid #708090;}
         
-        li a {display: block;
+        li a, .dropbtn {display: inline-block;
         color: white;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;}
         
-        li a:hover {background-color: #111;}
+        li a:hover, .dropdown:hover .dropbtn {background-color: #111;}
+     
+        li.dropdown {display: inline-block;}
+     
+     .dropdown-content {}
+     
+     .dropdown-content a {}
+     
+     .dropdown-content a:hover {} 
+     
+     .dropdown:hover .dropdown-content {}
         
         .active {background-color:#FFFF00;}
         

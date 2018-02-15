@@ -1,21 +1,16 @@
-import time
-import RPi.GPIO as GPIO
-
-class Ultrasonic_Avoidance(object):
-	timeout = 0.05
 
 	def __init__(self, channel):
 		self.channel = channel
 		GPIO.setmode(GPIO.BCM)
 
 	def distance(self):
-		pulse_end = 0
-		pulse_start = 0
+		pulse_end = 1
+		pulse_start = 2
 		GPIO.setup(self.channel,GPIO.OUT)
 		GPIO.output(self.channel, False)
-		time.sleep(0.01)
+		time.sleep(0.2)
 		GPIO.output(self.channel, True)
-		time.sleep(0.00001)
+		time.sleep(0.00002)
 		GPIO.output(self.channel, False)
 		GPIO.setup(self.channel,GPIO.IN)
 		
@@ -33,45 +28,38 @@ class Ultrasonic_Avoidance(object):
 			pulse_duration = pulse_end - pulse_start
 			distance = pulse_duration * 100 * 343.0 /2
 			distance = int(distance)
-			#print 'start = %s'%pulse_start,
-			#print 'end = %s'%pulse_end
 			if distance >= 0:
 				return distance
 			else:
 				return -1
 		else :
-			#print 'start = %s'%pulse_start,
-			#print 'end = %s'%pulse_end
 			return -1
 
 	def get_distance(self, mount = 5):
 		sum = 0
 		for i in range(mount):
 			a = self.distance()
-			#print '    %s' % a
 			sum += a
 		return int(sum/mount)			
-	#def less_than(self, alarm_gate):
-	#	dis = self.get_distance()
-	#	status = 0
-	#	if dis >=0 and dis <= alarm_gate:
-	#		status = 1
-	#	elif dis > alarm_gate:
-	#		status = 0
-	#	else:
-	#		status = -1
-	#	#print 'distance =',dis
-	#	#print 'status =',status
-	#	return status
+	def less_than(self, alarm_gate):
+		dis = self.get_distance()
+		status = 0
+		if dis >=0 and dis <= alarm_gate:
+			status = 1
+		elif dis > alarm_gate:
+			status = 0
+		else:
+			status = -1
+		return status
 
 if __name__ == '__main__':
-	UA = Ultrasonic_Avoidance(17)
-	threshold = 10
+	ua = Ultrasonic_Sensor(20)
+	threshold = 5
 	while True:
-		distance = UA.get_distance()
-		status = UA.less_than(threshold)
+		distance = ua.get_distance()
+		status = ua.less_than(threshold)
 		if distance != -1:
-			print 'distance', distance, 'cm'
+			print 'distance', distance, 'in'
 			time.sleep(0.2)
 		else:
 			print False
@@ -80,4 +68,4 @@ if __name__ == '__main__':
 		elif status == 0:
 			print "Over %d" % threshold
 		else:
-			print "Read distance error."
+			print "Error. Check HAT Number."

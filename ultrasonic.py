@@ -2,7 +2,7 @@ import time
 import RPi.GPIO as GPIO
 
 class Ultrasonic_Sensor(object):
-	timeout = 0.05
+	timeout = 0.1
 
 	def __init__(self, channel):
 		self.channel = channel
@@ -33,22 +33,17 @@ class Ultrasonic_Sensor(object):
 			pulse_duration = pulse_end - pulse_start
 			distance = pulse_duration * 100 * 343.0 /2
 			distance = int(distance)
-			#print 'start = %s'%pulse_start,
-			#print 'end = %s'%pulse_end
 			if distance >= 0:
 				return distance
 			else:
 				return -1
 		else :
-			#print 'start = %s'%pulse_start,
-			#print 'end = %s'%pulse_end
 			return -1
 
 	def get_distance(self, mount = 5):
 		sum = 0
 		for i in range(mount):
 			a = self.distance()
-			#print '    %s' % a
 			sum += a
 		return int(sum/mount)			
 	def less_than(self, alarm_gate):
@@ -60,8 +55,6 @@ class Ultrasonic_Sensor(object):
 			status = 0
 		else:
 			status = -1
-		#print 'distance =',dis
-		#print 'status =',status
 		return status
 
 if __name__ == '__main__':
@@ -80,4 +73,4 @@ if __name__ == '__main__':
 		elif status == 0:
 			print "Over %d" % threshold
 		else:
-			print "Read distance error."
+			print "Distance Error"

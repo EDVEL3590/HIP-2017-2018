@@ -1,7 +1,7 @@
 import time
 import RPi.GPIO as GPIO
 
-class Ultrasonic_Avoidance(object):
+class Ultrasonic_Sensor(object):
 	timeout = 0.05
 
 	def __init__(self, channel):
@@ -65,8 +65,8 @@ class Ultrasonic_Avoidance(object):
 		return status
 
 if __name__ == '__main__':
-	UA = Ultrasonic_Avoidance(17)
-	threshold = 10
+	UA = Ultrasonic_Sensor(20)
+	threshold = 15
 	while True:
 		distance = UA.get_distance()
 		status = UA.less_than(threshold)
